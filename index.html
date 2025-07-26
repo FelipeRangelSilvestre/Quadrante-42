@@ -200,7 +200,7 @@
             text-shadow: 0 0 20px rgba(77, 171, 247, 0.3);
         }
 
-        /* Dashboard de Episódios */
+        /* Dashboard de Episódios Simplificado */
         .dashboard {
             background: rgba(10, 10, 10, 0.9);
             border-radius: 20px;
@@ -210,138 +210,146 @@
         }
 
         .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid #0f3460;
         }
 
-        .episode-count {
-            background: linear-gradient(45deg, #4dabf7, #74c0fc);
-            color: #0a0a0a;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9rem;
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .episodes-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .episode-item {
+        .episode-card {
             background: linear-gradient(135deg, rgba(15, 52, 96, 0.3), rgba(77, 171, 247, 0.1));
             border-radius: 15px;
-            padding: 2rem;
+            padding: 1.5rem;
             border: 1px solid rgba(77, 171, 247, 0.2);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
-        .episode-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(77, 171, 247, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .episode-item:hover {
+        .episode-card:hover {
             transform: translateY(-5px);
             border-color: #4dabf7;
             box-shadow: 0 15px 40px rgba(77, 171, 247, 0.2);
         }
 
-        .episode-item:hover::before {
-            left: 100%;
+        .episode-thumbnail {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
         }
 
-        .episode-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .episode-number {
-            background: linear-gradient(45deg, #4dabf7, #0f3460);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .episode-date {
-            color: #a5b3bb;
-            font-size: 0.9rem;
+        .episode-card:hover .episode-thumbnail {
+            transform: scale(1.05);
         }
 
         .episode-title {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
             color: #ffffff;
             font-weight: 600;
-        }
-
-        .episode-description {
-            color: #a5b3bb;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .episode-controls {
             display: flex;
-            align-items: center;
             gap: 1rem;
+            justify-content: center;
+        }
+
+        .play-button, .spotify-button {
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 120px;
         }
 
         .play-button {
             background: linear-gradient(45deg, #4dabf7, #0f3460);
             color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .play-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(77, 171, 247, 0.4);
         }
 
         .spotify-button {
             background: #1DB954;
             color: white;
+        }
+
+        .play-button:hover, .spotify-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Input para adicionar episódios */
+        .add-episode {
+            background: rgba(15, 52, 96, 0.2);
+            border: 2px dashed rgba(77, 171, 247, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .add-episode:hover {
+            border-color: #4dabf7;
+            background: rgba(15, 52, 96, 0.3);
+        }
+
+        .add-episode input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(77, 171, 247, 0.3);
+            border-radius: 10px;
+            background: rgba(10, 10, 10, 0.8);
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .add-episode input::placeholder {
+            color: #a5b3bb;
+        }
+
+        .add-episode input:focus {
+            outline: none;
+            border-color: #4dabf7;
+            box-shadow: 0 0 10px rgba(77, 171, 247, 0.3);
+        }
+
+        .add-button {
+            background: linear-gradient(45deg, #4dabf7, #0f3460);
+            color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
+            padding: 12px 30px;
+            border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .spotify-button:hover {
-            background: #1ed760;
-            transform: scale(1.05);
+        .add-button:hover {
+            transform: translateY(-2px);
         }
 
         /* Audio Player Integrado */
@@ -539,96 +547,31 @@
             <h2 class="section-title">Dashboard de Episódios</h2>
             <div class="dashboard">
                 <div class="dashboard-header">
-                    <h3>Últimos Episódios</h3>
-                    <span class="episode-count">15+ Episódios</span>
+                    <h3>Episódios do Quadrante 42</h3>
                 </div>
-                <div class="episodes-list">
-                    <div class="episode-item">
-                        <div class="episode-header">
-                            <span class="episode-number">EP 15</span>
-                            <span class="episode-date">25 Jul 2024</span>
-                        </div>
-                        <h3 class="episode-title">O Multiverso do Cinema: De Marvel à A24</h3>
-                        <p class="episode-description">Uma discussão profunda sobre como o conceito de multiverso revolucionou o cinema moderno, desde os blockbusters da Marvel até os filmes indie mais experimentais.</p>
-                        <div class="episode-controls">
-                            <button class="play-button" onclick="togglePlay(this)">
-                                <span>▶️</span> Reproduzir
-                            </button>
-                            <a href="https://open.spotify.com/show/1onXpyf7ytWb69lgsYBAFw" target="_blank" class="spotify-button">
-                                <span>🎵</span> Spotify
-                            </a>
-                        </div>
-                        <div class="audio-player">
-                            <audio controls>
-                                <source src="#" type="audio/mpeg">
-                                Seu navegador não suporta o elemento de áudio.
-                            </audio>
-                        </div>
+                
+                <div class="episodes-grid">
+                    <!-- Card para adicionar novo episódio -->
+                    <div class="add-episode">
+                        <h4 style="color: #4dabf7; margin-bottom: 1rem;">➕ Adicionar Episódio</h4>
+                        <input type="url" id="episodeUrl" placeholder="Cole o link do episódio do Spotify aqui... (ex: https://open.spotify.com/episode/14SYBGaNvgXcyF4MB3jVTC)" value="https://open.spotify.com/episode/14SYBGaNvgXcyF4MB3jVTC?si=18dcfceb08ca4f0a">
+                        <button class="add-button" onclick="addEpisode()">Adicionar</button>
                     </div>
 
-                    <div class="episode-item">
-                        <div class="episode-header">
-                            <span class="episode-number">EP 14</span>
-                            <span class="episode-date">18 Jul 2024</span>
-                        </div>
-                        <h3 class="episode-title">Games Indie que Mudaram Tudo</h3>
-                        <p class="episode-description">Explorando como jogos independentes como Hollow Knight, Celeste e Hades redefiniram o que esperamos da indústria de games.</p>
+                    <!-- Episódios existentes aparecerão aqui -->
+                    <div class="episode-card">
+                        <img src="https://pbs.twimg.com/media/GwveHo4XwAAJr-H?format=jpg&name=medium" alt="Quadrante 42" class="episode-thumbnail">
+                        <h3 class="episode-title">Último Episódio - Quadrante 42</h3>
                         <div class="episode-controls">
                             <button class="play-button" onclick="togglePlay(this)">
-                                <span>▶️</span> Reproduzir
+                                <span>▶️</span> Play
                             </button>
-                            <a href="https://open.spotify.com/show/1onXpyf7ytWb69lgsYBAFw" target="_blank" class="spotify-button">
+                            <a href="https://open.spotify.com/episode/14SYBGaNvgXcyF4MB3jVTC?si=18dcfceb08ca4f0a" target="_blank" class="spotify-button">
                                 <span>🎵</span> Spotify
                             </a>
                         </div>
-                        <div class="audio-player">
-                            <audio controls>
-                                <source src="#" type="audio/mpeg">
-                                Seu navegador não suporta o elemento de áudio.
-                            </audio>
-                        </div>
-                    </div>
-
-                    <div class="episode-item">
-                        <div class="episode-header">
-                            <span class="episode-number">EP 13</span>
-                            <span class="episode-date">11 Jul 2024</span>
-                        </div>
-                        <h3 class="episode-title">O Ressurgimento dos Quadrinhos</h3>
-                        <p class="episode-description">Como os quadrinhos saíram da crise dos anos 90 e se tornaram a base de bilhões de dólares em adaptações cinematográficas.</p>
-                        <div class="episode-controls">
-                            <button class="play-button" onclick="togglePlay(this)">
-                                <span>▶️</span> Reproduzir
-                            </button>
-                            <a href="https://open.spotify.com/show/1onXpyf7ytWb69lgsYBAFw" target="_blank" class="spotify-button">
-                                <span>🎵</span> Spotify
-                            </a>
-                        </div>
-                        <div class="audio-player">
-                            <audio controls>
-                                <source src="#" type="audio/mpeg">
-                                Seu navegador não suporta o elemento de áudio.
-                            </audio>
-                        </div>
-                    </div>
-
-                    <div class="episode-item">
-                        <div class="episode-header">
-                            <span class="episode-number">EP 12</span>
-                            <span class="episode-date">04 Jul 2024</span>
-                        </div>
-                        <h3 class="episode-title">Streaming Wars: O Futuro do Entretenimento</h3>
-                        <p class="episode-description">Analisando a batalha entre Netflix, Disney+, HBO Max e outras plataformas pelo domínio do streaming mundial.</p>
-                        <div class="episode-controls">
-                            <button class="play-button" onclick="togglePlay(this)">
-                                <span>▶️</span> Reproduzir
-                            </button>
-                            <a href="https://open.spotify.com/show/1onXpyf7ytWb69lgsYBAFw" target="_blank" class="spotify-button">
-                                <span>🎵</span> Spotify
-                            </a>
-                        </div>
-                        <div class="audio-player">
-                            <audio controls>
+                        <div class="audio-player" style="display: none; margin-top: 1rem;">
+                            <audio controls style="width: 100%;">
                                 <source src="#" type="audio/mpeg">
                                 Seu navegador não suporta o elemento de áudio.
                             </audio>
@@ -691,43 +634,119 @@
             });
         });
 
-        // Toggle do player de áudio
+        // Função para adicionar episódio
+        function addEpisode() {
+            const urlInput = document.getElementById('episodeUrl');
+            const url = urlInput.value.trim();
+            
+            if (!url) {
+                alert('Por favor, insira um link válido do episódio!');
+                return;
+            }
+            
+            // Extrair ID do episódio do Spotify
+            let episodeId = '';
+            if (url.includes('spotify.com/episode/')) {
+                episodeId = url.split('episode/')[1].split('?')[0];
+            } else {
+                alert('Por favor, use um link válido do Spotify (episódio)');
+                return;
+            }
+            
+            // Criar novo card de episódio
+            const episodesGrid = document.querySelector('.episodes-grid');
+            const newEpisode = document.createElement('div');
+            newEpisode.className = 'episode-card';
+            
+            newEpisode.innerHTML = `
+                <img src="https://pbs.twimg.com/media/GwveHo4XwAAJr-H?format=jpg&name=medium" alt="Quadrante 42" class="episode-thumbnail">
+                <h3 class="episode-title">Novo Episódio</h3>
+                <div class="episode-controls">
+                    <button class="play-button" onclick="togglePlay(this)">
+                        <span>▶️</span> Play
+                    </button>
+                    <a href="${url}" target="_blank" class="spotify-button">
+                        <span>🎵</span> Spotify
+                    </a>
+                </div>
+                <div class="audio-player" style="display: none; margin-top: 1rem;">
+                    <audio controls style="width: 100%;">
+                        <source src="#" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                </div>
+            `;
+            
+            // Adicionar antes do card "Adicionar Episódio"
+            const addCard = document.querySelector('.add-episode');
+            episodesGrid.insertBefore(newEpisode, addCard);
+            
+            // Limpar input
+            urlInput.value = '';
+            
+            // Animação de entrada
+            newEpisode.style.opacity = '0';
+            newEpisode.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                newEpisode.style.transition = 'all 0.5s ease';
+                newEpisode.style.opacity = '1';
+                newEpisode.style.transform = 'translateY(0)';
+            }, 100);
+        }
+
+        // Toggle do player de áudio simplificado
         function togglePlay(button) {
-            const item = button.closest('.episode-item');
-            const audioPlayer = item.querySelector('.audio-player');
-            const audio = audioPlayer.querySelector('audio');
+            const card = button.closest('.episode-card');
+            const audioPlayer = card.querySelector('.audio-player');
+            const audio = audioPlayer?.querySelector('audio');
             
             // Parar todos os outros players
-            document.querySelectorAll('.episode-item').forEach(otherItem => {
-                if (otherItem !== item) {
-                    const otherPlayer = otherItem.querySelector('.audio-player');
-                    const otherButton = otherItem.querySelector('.play-button');
-                    const otherAudio = otherPlayer.querySelector('audio');
+            document.querySelectorAll('.episode-card').forEach(otherCard => {
+                if (otherCard !== card) {
+                    const otherPlayer = otherCard.querySelector('.audio-player');
+                    const otherButton = otherCard.querySelector('.play-button');
+                    const otherAudio = otherPlayer?.querySelector('audio');
                     
-                    otherPlayer.style.display = 'none';
-                    otherButton.innerHTML = '<span>▶️</span> Reproduzir';
-                    otherItem.classList.remove('playing');
-                    if (otherAudio) {
-                        otherAudio.pause();
-                        otherAudio.currentTime = 0;
+                    if (otherPlayer) {
+                        otherPlayer.style.display = 'none';
+                        otherButton.innerHTML = '<span>▶️</span> Play';
+                        otherCard.classList.remove('playing');
+                        if (otherAudio) {
+                            otherAudio.pause();
+                            otherAudio.currentTime = 0;
+                        }
                     }
                 }
             });
             
-            if (audioPlayer.style.display === 'none' || audioPlayer.style.display === '') {
-                audioPlayer.style.display = 'block';
-                button.innerHTML = '<span>⏸️</span> Pausar';
-                item.classList.add('playing');
-            } else {
-                audioPlayer.style.display = 'none';
-                button.innerHTML = '<span>▶️</span> Reproduzir';
-                item.classList.remove('playing');
-                if (audio) {
-                    audio.pause();
-                    audio.currentTime = 0;
+            if (audioPlayer) {
+                if (audioPlayer.style.display === 'none' || audioPlayer.style.display === '') {
+                    audioPlayer.style.display = 'block';
+                    button.innerHTML = '<span>⏸️</span> Pause';
+                    card.classList.add('playing');
+                } else {
+                    audioPlayer.style.display = 'none';
+                    button.innerHTML = '<span>▶️</span> Play';
+                    card.classList.remove('playing');
+                    if (audio) {
+                        audio.pause();
+                        audio.currentTime = 0;
+                    }
                 }
             }
         }
+
+        // Enter para adicionar episódio
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlInput = document.getElementById('episodeUrl');
+            if (urlInput) {
+                urlInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        addEpisode();
+                    }
+                });
+            }
+        });
 
         // Efeito de parallax no hero
         window.addEventListener('scroll', () => {
