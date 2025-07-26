@@ -33,8 +33,8 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 2px solid #0f3460;
-            box-shadow: 0 4px 20px rgba(15, 52, 96, 0.3);
+            border-bottom: 2px solid #4dabf7;
+            box-shadow: 0 4px 20px rgba(77, 171, 247, 0.3);
         }
 
         nav {
@@ -49,18 +49,14 @@
             align-items: center;
             gap: 15px;
             text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
         }
 
         .logo-img {
             width: 50px;
             height: 50px;
-            object-fit: contain;
-            filter: drop-shadow(0 0 10px rgba(77, 171, 247, 0.3));
+            border-radius: 50%;
+            object-fit: cover;
+            filter: drop-shadow(0 0 10px rgba(77, 171, 247, 0.5));
         }
 
         .logo-text {
@@ -96,7 +92,6 @@
             display: flex;
             align-items: center;
             text-align: center;
-            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -108,28 +103,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(77,171,247,0.2)"/><circle cx="80" cy="80" r="1.5" fill="rgba(77,171,247,0.1)"/><circle cx="40" cy="70" r="0.8" fill="rgba(77,171,247,0.15)"/><circle cx="90" cy="10" r="1.2" fill="rgba(77,171,247,0.1)"/></svg>') repeat;
-            animation: floatStars 25s linear infinite;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="0.5" fill="rgba(77,171,247,0.3)"/><circle cx="80" cy="80" r="0.8" fill="rgba(77,171,247,0.2)"/><circle cx="40" cy="70" r="0.3" fill="rgba(77,171,247,0.4)"/><circle cx="90" cy="10" r="0.6" fill="rgba(77,171,247,0.2)"/></svg>') repeat;
+            animation: float 20s linear infinite;
         }
 
-        @keyframes floatStars {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(180deg); }
-            100% { transform: translateY(0px) rotate(360deg); }
-        }
-
-        .hero-logo {
-            width: 200px;
-            height: 200px;
-            object-fit: contain;
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 0 30px rgba(77, 171, 247, 0.5));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
 
         .hero-content {
@@ -137,11 +118,26 @@
             z-index: 2;
         }
 
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 30px rgba(77, 171, 247, 0.5));
+            animation: logoFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-            background: linear-gradient(45deg, #4dabf7, #74c0fc, #4dabf7);
+            background: linear-gradient(45deg, #4dabf7, #74c0fc);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -156,21 +152,30 @@
 
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            margin-bottom: 3rem;
             color: #a5b3bb;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             background: linear-gradient(45deg, #4dabf7, #0f3460);
             color: white;
             padding: 18px 35px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             transition: all 0.3s ease;
             box-shadow: 0 6px 25px rgba(77, 171, 247, 0.3);
             border: 2px solid transparent;
@@ -182,14 +187,19 @@
             border-color: #4dabf7;
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 0;
-            background: rgba(10, 10, 10, 0.8);
+        .spotify-button {
+            background: linear-gradient(45deg, #1DB954, #1ed760);
         }
 
-        section:nth-child(even) {
-            background: rgba(15, 52, 96, 0.1);
+        .spotify-button:hover {
+            box-shadow: 0 10px 35px rgba(29, 185, 84, 0.5);
+            border-color: #1DB954;
+        }
+
+        /* Latest Episode Section */
+        .latest-episode {
+            padding: 5rem 0;
+            background: rgba(10, 10, 10, 0.9);
         }
 
         .section-title {
@@ -200,179 +210,287 @@
             text-shadow: 0 0 20px rgba(77, 171, 247, 0.3);
         }
 
-        /* Dashboard de Episódios Simplificado */
-        .dashboard {
-            background: rgba(10, 10, 10, 0.9);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 2px solid #0f3460;
-            box-shadow: 0 10px 40px rgba(15, 52, 96, 0.2);
-        }
-
-        .dashboard-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #0f3460;
-        }
-
-        .episodes-grid {
+        .episode-highlight {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.3), rgba(77, 171, 247, 0.1));
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(77, 171, 247, 0.2);
+            box-shadow: 0 20px 60px rgba(77, 171, 247, 0.1);
         }
 
-        .episode-card {
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.3), rgba(77, 171, 247, 0.1));
-            border-radius: 15px;
-            padding: 1.5rem;
-            border: 1px solid rgba(77, 171, 247, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .episode-cover {
             text-align: center;
         }
 
-        .episode-card:hover {
-            transform: translateY(-5px);
-            border-color: #4dabf7;
-            box-shadow: 0 15px 40px rgba(77, 171, 247, 0.2);
-        }
-
-        .episode-thumbnail {
+        .episode-cover img {
             width: 100%;
-            max-width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            margin: 0 auto 1rem;
-            object-fit: cover;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
 
-        .episode-card:hover .episode-thumbnail {
+        .episode-cover img:hover {
             transform: scale(1.05);
         }
 
-        .episode-title {
-            font-size: 1.2rem;
+        .episode-info h3 {
+            font-size: 2rem;
+            color: #4dabf7;
             margin-bottom: 1rem;
-            color: #ffffff;
-            font-weight: 600;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .episode-controls {
+        .episode-info p {
+            font-size: 1.1rem;
+            color: #a5b3bb;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .episode-actions {
             display: flex;
             gap: 1rem;
-            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .play-button, .spotify-button {
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: flex;
+        .play-btn, .spotify-btn {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-width: 120px;
+            gap: 10px;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
-        .play-button {
+        .play-btn {
             background: linear-gradient(45deg, #4dabf7, #0f3460);
             color: white;
         }
 
-        .spotify-button {
+        .play-btn.playing {
+            background: linear-gradient(45deg, #1DB954, #1ed760);
+        }
+
+        .spotify-btn {
             background: #1DB954;
             color: white;
         }
 
-        .play-button:hover, .spotify-button:hover {
+        .play-btn:hover, .spotify-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Input para adicionar episódios */
-        .add-episode {
-            background: rgba(15, 52, 96, 0.2);
-            border: 2px dashed rgba(77, 171, 247, 0.3);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .add-episode:hover {
-            border-color: #4dabf7;
-            background: rgba(15, 52, 96, 0.3);
-        }
-
-        .add-episode input {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid rgba(77, 171, 247, 0.3);
-            border-radius: 10px;
-            background: rgba(10, 10, 10, 0.8);
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .add-episode input::placeholder {
-            color: #a5b3bb;
-        }
-
-        .add-episode input:focus {
-            outline: none;
-            border-color: #4dabf7;
-            box-shadow: 0 0 10px rgba(77, 171, 247, 0.3);
-        }
-
-        .add-button {
-            background: linear-gradient(45deg, #4dabf7, #0f3460);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .add-button:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Audio Player Integrado */
+        /* Player de Áudio Funcional */
         .audio-player {
             background: rgba(15, 52, 96, 0.3);
             border-radius: 15px;
             padding: 1.5rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             border: 1px solid rgba(77, 171, 247, 0.3);
             display: none;
+            animation: slideDown 0.3s ease;
         }
 
-        .audio-player audio {
-            width: 100%;
-            height: 40px;
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-container {
+            flex: 1;
+            background: rgba(10, 10, 10, 0.5);
+            height: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #4dabf7, #74c0fc);
+            height: 100%;
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .time-display {
+            color: #a5b3bb;
+            font-size: 0.9rem;
+            min-width: 45px;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .volume-slider {
+            width: 80px;
+            height: 4px;
+            background: rgba(10, 10, 10, 0.5);
+            border-radius: 2px;
             outline: none;
+            cursor: pointer;
         }
 
-        .audio-player audio::-webkit-media-controls-panel {
-            background-color: rgba(15, 52, 96, 0.8);
+        /* Loading States */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(77, 171, 247, 0.3), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Página 404 */
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            padding: 2rem;
+        }
+
+        .error-content {
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #4dabf7;
+            text-shadow: 0 0 30px rgba(77, 171, 247, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        .error-description {
+            color: #a5b3bb;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 10, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 1px solid rgba(77, 171, 247, 0.3);
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            border: 6px solid transparent;
+            border-top-color: rgba(10, 10, 10, 0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .tooltip:hover::before,
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-8px);
+        }
+
+        /* Indicadores de Status */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #a5b3bb;
+            margin-top: 1rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4dabf7;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.error {
+            background: #ff6b6b;
+        }
+
+        .status-dot.success {
+            background: #51cf66;
         }
 
         /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: rgba(15, 52, 96, 0.1);
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -389,51 +507,44 @@
         .about-text h3 {
             color: #4dabf7;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
 
         .about-image {
             text-align: center;
         }
 
-        .podcast-avatar {
-            width: 280px;
-            height: 280px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #4dabf7, #0f3460);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin: 0 auto;
-            box-shadow: 0 20px 60px rgba(77, 171, 247, 0.3);
-            border: 3px solid rgba(77, 171, 247, 0.3);
-            position: relative;
-            overflow: hidden;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .podcast-avatar::before {
-            content: '';
-            position: absolute;
-            width: 120px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-            top: 50%;
-            transform: translateY(-50%);
+        .stat-card {
+            background: rgba(15, 52, 96, 0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(77, 171, 247, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .podcast-avatar .number {
-            font-size: 4rem;
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #4dabf7;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
             font-weight: bold;
+            color: #4dabf7;
             margin-bottom: 0.5rem;
         }
 
-        .podcast-avatar .text {
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 2px;
+        .stat-label {
+            color: #a5b3bb;
+            font-size: 1rem;
         }
 
         /* Footer */
@@ -448,16 +559,16 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .social-links a {
             background: linear-gradient(45deg, #4dabf7, #0f3460);
             color: white;
-            padding: 12px;
+            padding: 15px;
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
             text-decoration: none;
             width: 50px;
@@ -482,36 +593,42 @@
                 font-size: 2.8rem;
             }
 
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .episode-highlight {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .dashboard-header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
+            .episode-actions {
+                justify-content: center;
             }
 
-            .episode-header {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .episode-controls {
-                flex-direction: column;
-                align-items: stretch;
+            .stats {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Animações extras */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        /* Animações suaves */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .playing {
-            animation: pulse 2s infinite;
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -524,8 +641,9 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
-                <li><a href="#episodes">Episódios</a></li>
+                <li><a href="#episode">Último Episódio</a></li>
                 <li><a href="#about">Sobre</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
@@ -537,69 +655,125 @@
                 <img src="https://pbs.twimg.com/media/GwveHo4XwAAJr-H?format=jpg&name=medium" alt="Quadrante 42" class="hero-logo">
                 <h1>Quadrante 42</h1>
                 <p>Cultura Pop em Todas as Dimensões - Cinema, Games, Séries, Quadrinhos e muito mais!</p>
-                <a href="#episodes" class="cta-button">Explore o Universo</a>
+                <div class="hero-buttons">
+                    <a href="https://open.spotify.com/show/1onXpyf7ytWb69lgsYBAFw" target="_blank" class="cta-button spotify-button">
+                        <span>🎵</span> Ouça no Spotify
+                    </a>
+                    <a href="#episode" class="cta-button">
+                        <span>🎧</span> Último Episódio
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="episodes">
+    <section id="episode" class="latest-episode">
         <div class="container">
-            <h2 class="section-title">Dashboard de Episódios</h2>
-            <div class="dashboard">
-                <div class="dashboard-header">
-                    <h3>Episódios do Quadrante 42</h3>
+            <h2 class="section-title">Último Episódio</h2>
+            <div class="episode-highlight fade-in">
+                <div class="episode-cover">
+                    <img src="https://pbs.twimg.com/media/GwveHo4XwAAJr-H?format=jpg&name=medium" alt="Último Episódio">
                 </div>
-                
-                <div class="episodes-grid">
-                    <!-- Card para adicionar novo episódio -->
-                    <div class="add-episode">
-                        <h4 style="color: #4dabf7; margin-bottom: 1rem;">➕ Adicionar Episódio</h4>
-                        <input type="url" id="episodeUrl" placeholder="Cole o link do episódio do Spotify aqui... (ex: https://open.spotify.com/episode/14SYBGaNvgXcyF4MB3jVTC)" value="https://open.spotify.com/episode/14SYBGaNvgXcyF4MB3jVTC?si=18dcfceb08ca4f0a">
-                        <button class="add-button" onclick="addEpisode()">Adicionar</button>
+                <div class="episode-info">
+                    <h3>Explorando Novas Dimensões</h3>
+                    <p>Neste episódio, mergulhamos fundo no universo da cultura pop contemporânea. Discutimos os últimos lançamentos do cinema, games que estão revolucionando a indústria e quadrinhos que não podem ficar de fora da sua lista.</p>
+                    <p>Prepare-se para uma jornada através das dimensões do entretenimento que mais amamos!</p>
+                    <div class="episode-actions">
+                        <button class="play-btn tooltip" data-tooltip="Reproduzir episódio" onclick="togglePlayer()">
+                            <span id="playIcon">▶️</span> <span id="playText">Reproduzir</span>
+                        </button>
+                        <a href="https://open.spotify.com/episode/14SYBGaNvgXcyF4MB3jVTC?si=18dcfceb08ca4f0a" target="_blank" class="spotify-btn tooltip" data-tooltip="Ouvir no Spotify">
+                            <span>🎵</span> Abrir no Spotify
+                        </a>
                     </div>
-
-                    <!-- Episódios existentes aparecerão aqui -->
-                    <div class="episode-card">
-                        <img src="https://pbs.twimg.com/media/GwveHo4XwAAJr-H?format=jpg&name=medium" alt="Quadrante 42" class="episode-thumbnail">
-                        <h3 class="episode-title">Último Episódio - Quadrante 42</h3>
-                        <div class="episode-controls">
-                            <button class="play-button" onclick="togglePlay(this)">
-                                <span>▶️</span> Play
-                            </button>
-                            <a href="https://open.spotify.com/episode/14SYBGaNvgXcyF4MB3jVTC?si=18dcfceb08ca4f0a" target="_blank" class="spotify-button">
-                                <span>🎵</span> Spotify
-                            </a>
+                    
+                    <!-- Player de Áudio Funcional -->
+                    <div class="audio-player" id="audioPlayer">
+                        <div class="audio-controls">
+                            <div class="time-display" id="currentTime">0:00</div>
+                            <div class="progress-container" onclick="seekAudio(event)">
+                                <div class="progress-bar" id="progressBar"></div>
+                            </div>
+                            <div class="time-display" id="duration">0:00</div>
+                            <div class="volume-control">
+                                <span>🔊</span>
+                                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50">
+                            </div>
                         </div>
-                        <div class="audio-player" style="display: none; margin-top: 1rem;">
-                            <audio controls style="width: 100%;">
-                                <source src="#" type="audio/mpeg">
-                                Seu navegador não suporta o elemento de áudio.
-                            </audio>
+                        <div class="status-indicator" id="audioStatus">
+                            <div class="status-dot" id="statusDot"></div>
+                            <span id="statusText">Pronto para reproduzir</span>
                         </div>
+                        <audio id="audioElement" preload="metadata">
+                            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+                            <source src="#" type="audio/mpeg">
+                            Seu navegador não suporta reprodução de áudio.
+                        </audio>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">Sobre o Quadrante 42</h2>
-            <div class="about-content">
+            <div class="about-content fade-in">
                 <div class="about-text">
-                    <h3>Sua Portal para a Cultura Pop</h3>
-                    <p>O Quadrante 42 é seu destino definitivo para mergulhar no universo da cultura pop. Exploramos tudo que move nossa paixão: desde os últimos blockbusters até aqueles games indie que você precisa conhecer.</p>
+                    <h3>Seu Portal para a Cultura Pop</h3>
+                    <p>O Quadrante 42 é mais que um podcast - é sua porta de entrada para o universo infinito da cultura pop. Aqui, exploramos desde os clássicos que marcaram época até as novidades que estão moldando o futuro do entretenimento.</p>
                     
-                    <h3>O que Você Encontra Aqui</h3>
-                    <p>Discussões profundas sobre cinema, análises de jogos, debates sobre séries, quadrinhos clássicos e modernos, e todas as tendências que estão moldando o entretenimento do século XXI.</p>
+                    <h3>Nossa Abordagem</h3>
+                    <p>Conversas autênticas, análises profundas e muita paixão pelo que fazemos. Cada episódio é uma jornada através das múltiplas dimensões da cultura pop, sempre com o olhar crítico e o coração de verdadeiros fãs.</p>
                     
-                    <h3>Nossa Missão</h3>
-                    <p>Conectar fãs, descobrir gems escondidas e celebrar tudo que torna a cultura pop tão fascinante. Cada episódio é uma jornada através das dimensões do entretenimento.</p>
+                    <h3>Junte-se à Nossa Comunidade</h3>
+                    <p>Mais que ouvintes, vocês são parte da tripulação do Quadrante 42. Compartilhe suas opiniões, descubra novos universos e conecte-se com outros fãs que compartilham da mesma paixão.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://pbs.twimg.com/media/GwveHo4XwAAJr-H?format=jpg&name=medium" alt="Quadrante 42" style="width: 280px; height: 280px; object-fit: contain; border-radius: 20px; box-shadow: 0 20px 60px rgba(77, 171, 247, 0.3); border: 3px solid rgba(77, 171, 247, 0.3); background: linear-gradient(135deg, #0a0a0a, #1a1a2e);">
-                    <h3 style="margin-top: 2rem; color: #4dabf7;">Quadrante 42</h3>
-                    <p style="color: #a5b3bb;">Cultura Pop em Todas as Dimensões</p>
+                    <img src="https://pbs.twimg.com/media/GwveHo4XwAAJr-H?format=jpg&name=medium" alt="Quadrante 42" style="width: 100%; max-width: 350px; border-radius: 20px; box-shadow: 0 20px 60px rgba(77, 171, 247, 0.3);">
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">Dimensões Exploradas</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Possibilidades</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Paixão Pela Cultura Pop</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="about">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="faq-content fade-in">
+                <div class="faq-item">
+                    <h3 style="color: #4dabf7; margin-bottom: 1rem;">🎧 Como posso ouvir o podcast?</h3>
+                    <p style="color: #a5b3bb; margin-bottom: 2rem;">O Quadrante 42 está disponível no Spotify, Apple Podcasts, Google Podcasts e outras plataformas. Use os links em nosso site para acessar diretamente.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 style="color: #4dabf7; margin-bottom: 1rem;">📅 Com que frequência saem novos episódios?</h3>
+                    <p style="color: #a5b3bb; margin-bottom: 2rem;">Lançamos episódios regularmente. Siga-nos nas redes sociais para ficar por dentro das novidades e lançamentos.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 style="color: #4dabf7; margin-bottom: 1rem;">💬 Como posso participar ou sugerir temas?</h3>
+                    <p style="color: #a5b3bb; margin-bottom: 2rem;">Entre em contato conosco através de nossas redes sociais! Adoramos receber sugestões e interagir com nossa comunidade.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 style="color: #4dabf7; margin-bottom: 1rem;">🎮 Que tipo de conteúdo vocês abordam?</h3>
+                    <p style="color: #a5b3bb; margin-bottom: 2rem;">Cobrimos tudo sobre cultura pop: cinema, séries, games, quadrinhos, anime, literatura fantástica e muito mais. Se faz parte do universo geek, provavelmente já falamos sobre!</p>
                 </div>
             </div>
         </div>
@@ -620,185 +794,296 @@
     </footer>
 
     <script>
-        // Smooth scrolling para os links
+        // Variáveis globais do player
+        let audioElement = null;
+        let isPlaying = false;
+        let currentTime = 0;
+        let duration = 0;
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            audioElement = document.getElementById('audioElement');
+            initializeAudioPlayer();
+            initializeKeyboardShortcuts();
+            setupIntersectionObserver();
+        });
+
+        // Player de Áudio Funcional
+        function initializeAudioPlayer() {
+            if (!audioElement) return;
+
+            // Event listeners do áudio
+            audioElement.addEventListener('loadedmetadata', () => {
+                duration = audioElement.duration;
+                document.getElementById('duration').textContent = formatTime(duration);
+                updateStatus('Pronto para reproduzir', 'success');
+            });
+
+            audioElement.addEventListener('timeupdate', () => {
+                currentTime = audioElement.currentTime;
+                updateProgressBar();
+                document.getElementById('currentTime').textContent = formatTime(currentTime);
+            });
+
+            audioElement.addEventListener('ended', () => {
+                resetPlayer();
+            });
+
+            audioElement.addEventListener('error', (e) => {
+                updateStatus('Erro ao carregar áudio', 'error');
+                console.error('Erro no áudio:', e);
+            });
+
+            audioElement.addEventListener('waiting', () => {
+                updateStatus('Carregando...', 'loading');
+            });
+
+            audioElement.addEventListener('canplay', () => {
+                updateStatus('Pronto para reproduzir', 'success');
+            });
+
+            // Volume control
+            const volumeSlider = document.getElementById('volumeSlider');
+            volumeSlider.addEventListener('input', (e) => {
+                audioElement.volume = e.target.value / 100;
+            });
+            
+            // Set initial volume
+            audioElement.volume = 0.5;
+        }
+
+        function togglePlayer() {
+            const playIcon = document.getElementById('playIcon');
+            const playText = document.getElementById('playText');
+            const playButton = document.querySelector('.play-btn');
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            if (!isPlaying) {
+                // Mostrar player se não estiver visível
+                if (audioPlayer.style.display === 'none' || audioPlayer.style.display === '') {
+                    audioPlayer.style.display = 'block';
+                }
+
+                // Tentar reproduzir
+                const playPromise = audioElement.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        playIcon.textContent = '⏸️';
+                        playText.textContent = 'Pausar';
+                        playButton.classList.add('playing');
+                        updateStatus('Reproduzindo...', 'success');
+                    }).catch(error => {
+                        console.error('Erro ao reproduzir:', error);
+                        updateStatus('Erro na reprodução', 'error');
+                    });
+                }
+            } else {
+                audioElement.pause();
+                isPlaying = false;
+                playIcon.textContent = '▶️';
+                playText.textContent = 'Reproduzir';
+                playButton.classList.remove('playing');
+                updateStatus('Pausado', 'success');
+            }
+        }
+
+        function seekAudio(event) {
+            if (!audioElement || !duration) return;
+            
+            const progressContainer = event.currentTarget;
+            const clickX = event.offsetX;
+            const width = progressContainer.offsetWidth;
+            const newTime = (clickX / width) * duration;
+            
+            audioElement.currentTime = newTime;
+        }
+
+        function updateProgressBar() {
+            if (!duration) return;
+            
+            const progressBar = document.getElementById('progressBar');
+            const progress = (currentTime / duration) * 100;
+            progressBar.style.width = progress + '%';
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateStatus(message, type = 'default') {
+            const statusText = document.getElementById('statusText');
+            const statusDot = document.getElementById('statusDot');
+            
+            statusText.textContent = message;
+            statusDot.className = `status-dot ${type}`;
+        }
+
+        function resetPlayer() {
+            isPlaying = false;
+            document.getElementById('playIcon').textContent = '▶️';
+            document.getElementById('playText').textContent = 'Reproduzir';
+            document.querySelector('.play-btn').classList.remove('playing');
+            updateStatus('Episódio finalizado', 'success');
+            
+            // Reset progress
+            setTimeout(() => {
+                audioElement.currentTime = 0;
+                updateProgressBar();
+                document.getElementById('currentTime').textContent = '0:00';
+                updateStatus('Pronto para reproduzir', 'success');
+            }, 2000);
+        }
+
+        // Atalhos de teclado
+        function initializeKeyboardShortcuts() {
+            document.addEventListener('keydown', (e) => {
+                // Espaço para play/pause (apenas se não estiver em input)
+                if (e.code === 'Space' && !['INPUT', 'TEXTAREA'].includes(e.target.tagName)) {
+                    e.preventDefault();
+                    togglePlayer();
+                }
+                
+                // Seta esquerda: -10s
+                if (e.code === 'ArrowLeft' && audioElement && isPlaying) {
+                    e.preventDefault();
+                    audioElement.currentTime = Math.max(0, audioElement.currentTime - 10);
+                }
+                
+                // Seta direita: +10s
+                if (e.code === 'ArrowRight' && audioElement && isPlaying) {
+                    e.preventDefault();
+                    audioElement.currentTime = Math.min(duration, audioElement.currentTime + 10);
+                }
+            });
+        }
+
+        // Tratamento de erros 404
+        function handleNotFound() {
+            document.body.innerHTML = `
+                <div class="error-page">
+                    <div class="error-content">
+                        <div class="error-code">404</div>
+                        <h1 class="error-message">Página Não Encontrada</h1>
+                        <p class="error-description">
+                            Ops! Parece que esta dimensão do Quadrante 42 ainda não foi explorada. 
+                            A página que você está procurando pode ter sido movida ou não existe.
+                        </p>
+                        <a href="#home" class="cta-button" onclick="location.reload()">
+                            <span>🚀</span> Voltar ao Início
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Smooth scrolling melhorado
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
                 if (target) {
+                    // Adicionar loading state
+                    this.classList.add('loading');
+                    
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Remover loading após scroll
+                    setTimeout(() => {
+                        this.classList.remove('loading');
+                    }, 1000);
+                } else {
+                    // Página não encontrada
+                    console.warn('Seção não encontrada:', targetId);
                 }
             });
         });
 
-        // Função para adicionar episódio
-        function addEpisode() {
-            const urlInput = document.getElementById('episodeUrl');
-            const url = urlInput.value.trim();
-            
-            if (!url) {
-                alert('Por favor, insira um link válido do episódio!');
-                return;
-            }
-            
-            // Extrair ID do episódio do Spotify
-            let episodeId = '';
-            if (url.includes('spotify.com/episode/')) {
-                episodeId = url.split('episode/')[1].split('?')[0];
-            } else {
-                alert('Por favor, use um link válido do Spotify (episódio)');
-                return;
-            }
-            
-            // Criar novo card de episódio
-            const episodesGrid = document.querySelector('.episodes-grid');
-            const newEpisode = document.createElement('div');
-            newEpisode.className = 'episode-card';
-            
-            newEpisode.innerHTML = `
-                <img src="https://pbs.twimg.com/media/GwveHo4XwAAJr-H?format=jpg&name=medium" alt="Quadrante 42" class="episode-thumbnail">
-                <h3 class="episode-title">Novo Episódio</h3>
-                <div class="episode-controls">
-                    <button class="play-button" onclick="togglePlay(this)">
-                        <span>▶️</span> Play
-                    </button>
-                    <a href="${url}" target="_blank" class="spotify-button">
-                        <span>🎵</span> Spotify
-                    </a>
-                </div>
-                <div class="audio-player" style="display: none; margin-top: 1rem;">
-                    <audio controls style="width: 100%;">
-                        <source src="#" type="audio/mpeg">
-                        Seu navegador não suporta o elemento de áudio.
-                    </audio>
-                </div>
-            `;
-            
-            // Adicionar antes do card "Adicionar Episódio"
-            const addCard = document.querySelector('.add-episode');
-            episodesGrid.insertBefore(newEpisode, addCard);
-            
-            // Limpar input
-            urlInput.value = '';
-            
-            // Animação de entrada
-            newEpisode.style.opacity = '0';
-            newEpisode.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-                newEpisode.style.transition = 'all 0.5s ease';
-                newEpisode.style.opacity = '1';
-                newEpisode.style.transform = 'translateY(0)';
-            }, 100);
-        }
+        // Intersection Observer melhorado
+        function setupIntersectionObserver() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        // Toggle do player de áudio simplificado
-        function togglePlay(button) {
-            const card = button.closest('.episode-card');
-            const audioPlayer = card.querySelector('.audio-player');
-            const audio = audioPlayer?.querySelector('audio');
-            
-            // Parar todos os outros players
-            document.querySelectorAll('.episode-card').forEach(otherCard => {
-                if (otherCard !== card) {
-                    const otherPlayer = otherCard.querySelector('.audio-player');
-                    const otherButton = otherCard.querySelector('.play-button');
-                    const otherAudio = otherPlayer?.querySelector('audio');
-                    
-                    if (otherPlayer) {
-                        otherPlayer.style.display = 'none';
-                        otherButton.innerHTML = '<span>▶️</span> Play';
-                        otherCard.classList.remove('playing');
-                        if (otherAudio) {
-                            otherAudio.pause();
-                            otherAudio.currentTime = 0;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0s';
+                        entry.target.classList.add('fade-in');
+                        
+                        // Trigger loading animation for cards
+                        if (entry.target.classList.contains('stat-card')) {
+                            entry.target.classList.add('loading');
+                            setTimeout(() => {
+                                entry.target.classList.remove('loading');
+                            }, 800);
                         }
                     }
-                }
+                });
+            }, observerOptions);
+
+            // Observar elementos
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.2}s`;
+                observer.observe(element);
             });
-            
-            if (audioPlayer) {
-                if (audioPlayer.style.display === 'none' || audioPlayer.style.display === '') {
-                    audioPlayer.style.display = 'block';
-                    button.innerHTML = '<span>⏸️</span> Pause';
-                    card.classList.add('playing');
-                } else {
-                    audioPlayer.style.display = 'none';
-                    button.innerHTML = '<span>▶️</span> Play';
-                    card.classList.remove('playing');
-                    if (audio) {
-                        audio.pause();
-                        audio.currentTime = 0;
-                    }
-                }
-            }
         }
 
-        // Enter para adicionar episódio
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlInput = document.getElementById('episodeUrl');
-            if (urlInput) {
-                urlInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        addEpisode();
-                    }
-                });
-            }
-        });
-
-        // Efeito de parallax no hero
+        // Parallax effect no hero
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
-            if (hero) {
+            if (hero && scrolled < window.innerHeight) {
                 hero.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
         });
 
-        // Animação de entrada dos episódios
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Error handling global
+        window.addEventListener('error', (e) => {
+            console.error('Erro global capturado:', e.error);
+            updateStatus('Erro inesperado detectado', 'error');
+        });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        // Monitoramento de conexão
+        window.addEventListener('online', () => {
+            updateStatus('Conexão restaurada', 'success');
+        });
+
+        window.addEventListener('offline', () => {
+            updateStatus('Sem conexão com a internet', 'error');
+        });
+    </script> {
+                    entry.target.style.animationDelay = '0s';
+                    entry.target.classList.add('fade-in');
                 }
             });
         }, observerOptions);
 
-        // Aplicar observador aos episódios
+        // Aplicar observer aos elementos
         document.addEventListener('DOMContentLoaded', () => {
-            const items = document.querySelectorAll('.episode-item');
-            items.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(30px)';
-                item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-                observer.observe(item);
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.2}s`;
+                observer.observe(element);
             });
         });
 
-        // Easter egg - Konami Code
-        let konamiCode = [];
-        const correctCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-        
-        document.addEventListener('keydown', (e) => {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > correctCode.length) {
-                konamiCode.shift();
-            }
-            
-            if (JSON.stringify(konamiCode) === JSON.stringify(correctCode)) {
-                document.body.style.animation = 'gradientShift 1s ease-in-out infinite';
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                    alert('🎮 Código desbloqueado! Você é um verdadeiro gamer! 🎮');
-                }, 3000);
+        // Parallax effect no hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
         });
     </script>
